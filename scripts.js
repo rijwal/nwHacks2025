@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch("https://api.ambeedata.com/latest/fire", {
+            const response = await fetch("https://api.ambeedata.com/fire/latest/by-place?place=Los Angeles, CA", {
                 headers: {
                     "x-api-key": "c5d1cbd954309bf235a0a6709af2d84a4b08711f79fb3107bb64eb007aa523b8",
                 },
