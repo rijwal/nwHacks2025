@@ -1,41 +1,44 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-header {
-    background: #333;
-    color: white;
-    padding: 1rem;
-}
 
-nav ul {
-    list-style-type: none;
+.tabs {
     display: flex;
-    gap: 1rem;
+    background-color: #333;
+    justify-content: center;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav ul li a {
-    color: white;
+
+.tabs .tab {
     text-decoration: none;
-}
-
-main {
-    padding: 2rem;
-}
-
-footer {
-    background: #333;
     color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 10px 20px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
-#map {
-    margin: 1rem 0;
-    border: 1px solid #ddd;
+
+.tabs .tab:hover {
+    background-color: #575757;
+}
+
+
+.tabs .tab.active {
+    background-color: #444;
+    font-weight: bold;
+}
+
+
+.content {
+    padding: 20px;
 }
