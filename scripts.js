@@ -43,3 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("donationForm").reset();
     });
 });
+
+
+
