@@ -4,26 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate</title>
-    <link rel="stylesheet" href="styles/tabs.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="tabs">
-        <a href="index.html" class="tab">Home</a>
-        <a href="about.html" class="tab">About Us</a>
-        <a href="donate.html" class="tab active">Donate</a>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">APP NAME</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="about.html" class="navbar-link">About Us</a></li>
+                <li class="navbar-item"><a href="donate.html" class="navbar-link active">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Donation Page Content -->
     <div class="content">
         <h1>Donate to Wildfire Prevention</h1>
-        <form>
+
+        <!-- Donation Form -->
+        <form id="donationForm" class="donation-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Your email" required>
+
             <label for="amount">Donation Amount ($):</label>
-            <input type="number" id="amount" name="amount" placeholder="Amount" required>
-            <button type="submit">Donate Now</button>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount" required min="1">
+
+            <button type="button" id="donateButton">Donate Now</button>
         </form>
+
+        <!-- Transaction Summary -->
+        <div id="transactionSummary" class="transaction-summary" style="display: none;">
+            <h2>Thank You for Your Donation! 🎉</h2>
+            <p><strong>Name:</strong> <span id="summaryName"></span></p>
+            <p><strong>Email:</strong> <span id="summaryEmail"></span></p>
+            <p><strong>Amount:</strong> $<span id="summaryAmount"></span></p>
+            <p>Your contribution makes a difference in wildfire prevention efforts.</p>
+        </div>
     </div>
+
+    <script src="scripts/donate.js"></script>
 </body>
 </html>
