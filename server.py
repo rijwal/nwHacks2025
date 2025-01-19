@@ -1,13 +1,15 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS
 
-
-mongo_uri = "mongodb+srv://<username>:<password>@cluster.mongodb.net/?retryWrites=true&w=majority"
+# MongoDB connection
+mongo_uri = "mongodb+srv://nwhacksuser:nwhackspassword@nwhacks.nmgdk.mongodb.net/?retryWrites=true&w=majority&appName=nwhacks"
 client = MongoClient(mongo_uri)
-db = client["user_data"] 
-collection = db["user_locations"]  
+db = client["user_data"]  # Database name
+collection = db["user_locations"]  # Collection name
 
 @app.route('/save-user-data', methods=['POST'])
 def save_user_data():
@@ -16,14 +18,14 @@ def save_user_data():
     """
     data = request.json
 
- 
+    # Validate input
     phone = data.get('phoneNumber')
     location = data.get('location')
     if not phone or not location:
         return jsonify({'error': 'Phone number and location are required.'}), 400
 
     try:
-
+        # Insert data into MongoDB
         result = collection.insert_one({
             'phone_number': phone,
             'location': {
@@ -36,4 +38,4 @@ def save_user_data():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)  # Make sure Flask listens to all interfaces

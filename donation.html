@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location and Phone</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>User Location and Phone</title>
 </head>
-<body class="custom-body">
-    <h1>Provide your phone number and allow WildCan access to your location to receive real-time updates.</h1>
+<body>
+    <h1>Provide your phone number and location</h1>
 
     <form id="user-form">
         <label for="phone">Phone Number:</label>
@@ -77,8 +76,7 @@
 
             console.log('User Data:', userData);
 
-
-            fetch('/save-user-data', {
+            fetch('http://localhost:3000/save-user-data', {  // Point to Node.js server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +89,9 @@
                     } else {
                         output.textContent = "Error submitting data.";
                     }
+                    return response.json();
                 })
+                .then((data) => console.log("Server Response:", data))
                 .catch((error) => {
                     console.error("Error:", error);
                     output.textContent = "An error occurred while submitting data.";
