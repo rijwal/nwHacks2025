@@ -3,9 +3,7 @@ from twilio.rest import Client
 from math import radians, sin, cos, sqrt, atan2
 
 
-#USERS API DETAILS...
-
-
+# TWILIO API KEYS
 
 
 mongo_uri = "mongodb+srv://nwhacksuser:nwhackspassword@nwhacks.nmgdk.mongodb.net/?retryWrites=true&w=majority&appName=nwhacks"
@@ -17,7 +15,7 @@ users_collection_name = "users"
 
 
 EARTH_RADIUS_KM = 6371.0
-ALERT_DISTANCE_KM = 700 #for demo purposes number is inflated, this value should truely be approximately 50-100km.
+ALERT_DISTANCE_KM = 900 #for demo purposes number is inflated, this value should truely be approximately 50-100km.
 
 
 def calculate_distance(lat1, lon1, lat2, lon2):
