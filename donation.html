@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Location and Phone</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/fire.png" type="image/png">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">WildCan</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link active">Home</a></li>
+                <li class="navbar-item dropdown">
+                <a href="about.html" class="navbar-link">About Us</a>
+                <li class="navbar-item"><a href="donation.html" class="navbar-link">Donate</a></li>
+    
+                </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <h1>Provide your phone number and location</h1>
 
     <form id="user-form">
@@ -99,6 +114,8 @@
                     output.textContent = "An error occurred while submitting data.";
                 });
         });
+        
     </script>
+    <a href="https://uwbc.ca/campaign/wildfires/" class="donate-button">Donate</a>
 </body>
 </html>
