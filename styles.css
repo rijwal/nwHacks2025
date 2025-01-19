@@ -15,7 +15,7 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: #2c3e50;
+    background-color: #d67146;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,7 +43,7 @@ body {
 
 .navbar-logo:hover {
     transform: scale(1.2); 
-    color: #3498db; 
+    color: #ecf0f1; 
 }
 
 .navbar-menu {
@@ -66,7 +66,7 @@ body {
 }
 
 .navbar-link:hover {
-    background-color: #3498db;
+    background-color: #db4d34;
     color: white;
 }
 
@@ -76,7 +76,6 @@ body {
 }
 
 .navbar-link.active {
-    background-color: #3498db;
     color: white;
 }
 
@@ -96,12 +95,12 @@ body {
 /*  index */
 
 #map {
-    width: 80%; 
-    height: 600px; 
-    margin: 20px auto; 
-    border: 2px solid #3498db; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    width: 80%; /* Set the map width to 80% of the parent container */
+    height: 600px; /* Set the height to make it taller */
+    margin: 20px auto; /* Center the map horizontally with margin */
+    border: 2px solid #d67146; /* Optional: Add a border for better appearance */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
 }
 
 
@@ -121,8 +120,8 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 15px 30px; 
-    background-color: #3498db;
+    padding: 15px 30px; /* Increase padding for a bigger button */
+    background-color: #da553e;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -135,8 +134,8 @@ body {
 }
 
 .donate-button:hover {
-    background-color: #1d6fa5;
-    transform: scale(1.1); 
+    background-color: #d8371b;
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 
@@ -155,13 +154,13 @@ body {
 
 
 .user-box {
-    border: 2px solid #3498db; 
-    border-radius: 10px; 
-    padding: 20px; 
-    width: 400px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    background-color: #f9f9f9; 
-    margin-top: 20px; 
+    border: 2px solid #d67146; /* Add a border around the user box */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    width: 400px; /* Set a fixed width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: #f9f9f9; /* Light background */
+    margin-top: 20px; /* Adjust spacing from the header */
 }
 
 .user-box form {
@@ -179,7 +178,7 @@ body {
 }
 
 .user-box button {
-    background-color: #3498db;
+    background-color: #d67146;
     color: white;
     border: none;
     cursor: pointer;
@@ -187,8 +186,24 @@ body {
 }
 
 .user-box button:hover {
-    background-color: #1d6fa5;
+    background-color: #d8371b;
 }
+
+.user-box input[type="submit"]:hover {
+    background-color: #8e8e8e; /* Desired hover color */
+    color: white; /* Optional: Ensure text remains visible */
+    cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+
+
+.user-box input[type="submit"]:hover {
+    background-color: #8e8e8e; /* Desired hover color */
+    color: white; /* Optional: Ensure text remains visible */
+    cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+
 
 .video-container {
     position: relative;
