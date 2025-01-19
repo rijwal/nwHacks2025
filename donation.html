@@ -5,7 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Location and Phone</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/fire.png" type="image/png">
+    <style>
+        /* Add these styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fef5e6; /* Light background color */
+        }
+
+        h1 {
+            position: absolute;
+            top: 5%;
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        input[type="tel"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button, input[type="submit"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button {
+            background-color: #10b981;
+        }
+
+        button:hover {
+            background-color: #059669;
+        }
+
+        input[type="submit"] {
+            background-color: #3b82f6;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2563eb;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -27,9 +99,7 @@
     <form id="user-form">
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-        <br><br>
         <button type="button" id="get-location">Get Location</button>
-        <br><br>
         <input type="submit" value="Submit">
     </form>
 
@@ -76,7 +146,7 @@
         });
 
         form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent default form submission behavior
+            e.preventDefault();
 
             const phoneNumber = document.getElementById('phone').value;
 
@@ -92,8 +162,7 @@
 
             console.log('User Data:', userData);
 
-            // Fetch API to send data to the backend
-            fetch('http://localhost:3000/save-user-data', {  // Backend URL
+            fetch('http://localhost:3000/save-user-data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
