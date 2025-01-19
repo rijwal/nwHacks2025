@@ -1,13 +1,30 @@
-# Let's set your map key that was emailed to you. It should look something like 'abcdef1234567890abcdef1234567890'
-MAP_KEY = '<371936a038ee8f2597ccc06ee682b9cb>'
-#MAP_KEY = 'abcdef1234567890abcdef1234567890'
+import csv
+import requests
 
-# now let's check how many transactions we have
-import pandas as pd
-url = 'https://firms.modaps.eosdis.nasa.gov/mapserver/mapkey_status/?MAP_KEY=' + MAP_KEY
+# Replace with your actual FIRMS MAP_KEY
+MAP_KEY = "aed1d2f0a335f1545bb8e3ca8b526751"
+
+# Define the API URL for Canada's wildfire data (VIIRS example, last 3 days)
+country_code = "USA"
+dataset = "VIIRS_SNPP_NRT"  # Example dataset
+days = "2"  # Fetch data for the last 3 days
+url = f"https://firms.modaps.eosdis.nasa.gov/api/country/csv/{MAP_KEY}/{dataset}/{country_code}/{days}"
+
 try:
-  df = pd.read_json(url,  typ='series')
-  display(df)
-except:
-  # possible error, wrong MAP_KEY value, check for extra quotes, missing letters
-  print ("There is an issue with the query. \nTry in your browser: %s" % url)
+    # Make the API request
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an error for bad status codes
+
+    # Decode the CSV response
+    data = response.text.splitlines()
+    reader = csv.DictReader(data)
+
+    # Extract latitude and longitude
+    lat_lon_data = [(row["latitude"], row["longitude"]) for row in reader]
+
+    # Display the results
+    for lat, lon in lat_lon_data:
+        print(f"Latitude: {lat}, Longitude: {lon}")
+
+except requests.exceptions.RequestException as e:
+    print(f"Error fetching data: {e}")
