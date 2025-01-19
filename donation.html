@@ -59,9 +59,9 @@
             );
         });
 
-        // Handle form submission
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default form submission behavior
+
             const phoneNumber = document.getElementById('phone').value;
 
             if (!userLocation) {
@@ -76,7 +76,8 @@
 
             console.log('User Data:', userData);
 
-            fetch('http://localhost:3000/save-user-data', {  // Point to Node.js server
+            // Fetch API to send data to the backend
+            fetch('http://localhost:3000/save-user-data', {  // Backend URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
