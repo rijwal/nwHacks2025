@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Home</title>
-   <link rel="stylesheet" href="styles.css">
-   <link rel="icon" href="assets/fire.png" type="image/png">
-   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/fire.png" type="image/png">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="icon" href="assets/fire.png" type="image/png">
 </head>
 <body>
 
-   <nav class="navbar">
-       <div class="navbar-container">
-           <a href="index.html" class="navbar-logo">WildCan</a>
-           <ul class="navbar-menu">
-               <li class="navbar-item"><a href="index.html" class="navbar-link active">Home</a></li>
-               <li class="navbar-item"><a href="about.html" class="navbar-link">About Us</a></li>
-               <li class="navbar-item"><a href="alerts.html" class="navbar-link">Get Alerts</a></li>
-           </ul>
-       </div>
-   </nav>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">WildCan</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="about.html" class="navbar-link">About Us</a></li>
+                <li class="navbar-item"><a href="alerts.html" class="navbar-link">Get Alerts</a></li>
+            </ul>
+        </div>
+    </nav>
 
-   <div class="heading-container">
-       <h1>Active Wildfires in British Columbia</h1>
-       <div id="map"></div>
-   </div>
 
-   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-   <script>
+    <div class="heading-container">
+        <h1>Active Wildfires in British Columbia</h1>
+        <div id="map"></div>
+    </div>
+
+    <script src="scripts/tabs.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoicnNhbmdleSIsImEiOiJjbTYybnd1Z2IxMjR3MmxvdThzMHRxejBjIn0.FHJ1aQP5xd0N0t5rg9F8oQ';
 
         const map = new mapboxgl.Map({
