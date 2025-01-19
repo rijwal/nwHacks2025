@@ -17,6 +17,33 @@
             text-align: center;
             color: #2c3e50;
         }
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar-item {
+            margin: 0 15px;
+        }
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navbar-link.active {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -26,23 +53,17 @@
             <a href="index.html" class="navbar-logo">APP NAME</a>
             <ul class="navbar-menu">
                 <li class="navbar-item"><a href="index.html" class="navbar-link active">Home</a></li>
-                <li class="navbar-item dropdown">
-                <a href="about.html" class="navbar-link">About Us</a>
+                <li class="navbar-item dropdown"><a href="about.html" class="navbar-link">About Us</a></li>
                 <li class="navbar-item"><a href="donation.html" class="navbar-link">Donate</a></li>
-    
-                </ul>
-                </li>
             </ul>
         </div>
     </nav>
-
 
     <div class="content">
         <h1>Active Wildfires in British Columbia</h1>
         <div id="map"></div>
     </div>
 
-    <script src="scripts/tabs.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoicnNhbmdleSIsImEiOiJjbTYybnd1Z2IxMjR3MmxvdThzMHRxejBjIn0.FHJ1aQP5xd0N0t5rg9F8oQ';
@@ -56,12 +77,21 @@
 
         map.addControl(new mapboxgl.NavigationControl());
 
-        new mapboxgl.Marker()
-            .setLngLat([-127.6476, 53.7267])
-            .setPopup(new mapboxgl.Popup().setText("British Columbia, Canada"))
-            .addTo(map);
+        // Fetch wildfire data from the backend and add markers
+        fetch('http://localhost:3000/wildfires')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(wildfire => {
+                    new mapboxgl.Marker()
+                        .setLngLat([wildfire.longitude, wildfire.latitude])
+                        .setPopup(new mapboxgl.Popup().setText(`Wildfire Location: (${wildfire.latitude}, ${wildfire.longitude})`))
+                        .addTo(map);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching wildfire data:', error);
+            });
     </script>
 
-    <script src="scripts.js" defer></script>
 </body>
 </html>
