@@ -8,11 +8,11 @@ CORS(app)  # Enable CORS
 # MongoDB connection
 mongo_uri = "mongodb+srv://nwhacksuser:nwhackspassword@nwhacks.nmgdk.mongodb.net/?retryWrites=true&w=majority&appName=nwhacks"
 client = MongoClient(mongo_uri)
-db = client["user_data"]  # Database name
-collection = db["user_locations"]  # Collection name
+db = client["wildfires"]  # Database name
+collection = db["users"]  # Collection name
 
 @app.route('/save-user-data', methods=['POST'])
-def save_user_data():
+def store-user-info():
     """
     API endpoint to save user phone number and location.
     """

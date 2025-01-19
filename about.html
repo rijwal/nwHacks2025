@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WildCan  </title>
+    <title>About Us</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/fire.png" type="image/png">
 </head>
 <body>
- <div class = "image-container">
-    <img src = assets\wildfire.jpg >
- 
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">WildCan</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="about.html" class="navbar-link active">About Us</a></li>
+                <li class="navbar-item"><a href="alerts.html" class="navbar-link">Get Alerts</a></li>
+            </ul>
+        </div>
+    </nav>
 
- <div class = text-overlay>
-    <h1> WildCan </h1> 
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="assets/backgroundVid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay-content">
+            <h1>About WildCan</h1>
+            <p>WildCan is Canada's first wildfire system that utilizes wildfire data and notifies users when to evacuate in case of a nearby wildfire. We aim to provide timely and accurate alerts to keep communities safe.</p>
+        </div>
+        <a href="https://uwbc.ca/campaign/wildfires/" class="donate-button">Donate</a>
+    </div>
 
- </div>
-
- </div>
-
-
- </div class = "About Info"> 
-<h2> About us</h2>
-
-<p> WildCan is Canada's first Wildfire system that ultlises Wildfire data 
-    and notifies users when to evacuate in case of a wildfire near them. UPDATE </p>
- </div>
-
-    <a href="https://uwbc.ca/campaign/wildfires/" class="donate-button">Donate</a>
-
+    
 </body>
 </html>
