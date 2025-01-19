@@ -4,21 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Location and Phone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/fire.png" type="image/png">
 </head>
 <body>
-    <h1>Provide your phone number and location</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">WildCan</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="about.html" class="navbar-link">About Us</a></li>
+                <li class="navbar-item"><a href="alerts.html" class="navbar-link">Get Alerts</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <form id="user-form">
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-        <br><br>
-        <button type="button" id="get-location">Get Location</button>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <!-- Main Content -->
+    <div class="center-content">
+        <h1>Enter your phone number and location to find nearby wildfires and set up personalized alerts</h1>
+        <div class="user-box">
+            <form id="user-form">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <button type="button" id="get-location">Get Location</button>
+                <input type="submit" id = "submit-button" value="Submit">
+            </form>
+            <p id="output"></p>
+        </div>
+    </div>
 
-    <p id="output"></p>
+    <!-- Donate Button -->
+    <a href="https://uwbc.ca/campaign/wildfires/" class="donate-button">Donate</a>
 
+    <!-- JavaScript -->
     <script>
         const locationButton = document.getElementById('get-location');
         const form = document.getElementById('user-form');
@@ -38,7 +57,6 @@
                         latitude: position.coords.latitude,
                         longitude: position.coords.longitude,
                     };
-                    output.textContent = `Location captured: Latitude ${userLocation.latitude}, Longitude ${userLocation.longitude}`;
                 },
                 (error) => {
                     switch (error.code) {
@@ -59,9 +77,9 @@
             );
         });
 
-        // Handle form submission
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
             const phoneNumber = document.getElementById('phone').value;
 
             if (!userLocation) {
@@ -76,7 +94,7 @@
 
             console.log('User Data:', userData);
 
-            fetch('http://localhost:3000/save-user-data', {  // Point to Node.js server
+            fetch('http://localhost:3000/save-user-data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
