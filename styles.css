@@ -1,11 +1,9 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -15,7 +13,6 @@ body {
     color: #333;
 }
 
-/* Navbar Styling */
 .navbar {
     width: 100%;
     background-color: #2c3e50;
@@ -35,7 +32,6 @@ body {
     height: 60px;
 }
 
-/* Logo */
 .navbar-logo {
     color: #ecf0f1;
     text-decoration: none;
@@ -50,7 +46,6 @@ body {
     color: #3498db; 
 }
 
-/* Navbar Menu */
 .navbar-menu {
     list-style: none;
     display: flex;
@@ -75,19 +70,16 @@ body {
     color: white;
 }
 
-/* Dropdown Menu */
 .navbar-item.dropdown:hover .navbar-link {
     background-color: #2980b9;
     color: white;
 }
 
-/* Active Link */
 .navbar-link.active {
     background-color: #3498db;
     color: white;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .navbar-container {
         flex-wrap: wrap;
@@ -104,82 +96,78 @@ body {
 /*  index */
 
 #map {
-    width: 80%; /* Set the map width to 80% of the parent container */
-    height: 600px; /* Set the height to make it taller */
-    margin: 20px auto; /* Center the map horizontally with margin */
-    border: 2px solid #3498db; /* Optional: Add a border for better appearance */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+    width: 80%; 
+    height: 600px; 
+    margin: 20px auto; 
+    border: 2px solid #3498db; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
-/* Center the heading */
+
 .heading-container {
     text-align: center;
-    margin: 20px 0; /* Add some spacing above and below */
+    margin: 20px 0; 
 }
 
 .heading-container h1 {
-    font-size: 2rem; /* Adjust the font size */
-    color: #2c3e50; /* Dark text color */
+    font-size: 2rem; 
+    color: #2c3e50; 
     font-weight: bold;
 }
 
-/* Donate Button */
 .donate-button {
     display: inline-block;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 15px 30px; /* Increase padding for a bigger button */
+    padding: 15px 30px; 
     background-color: #3498db;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem; /* Increase font size for better visibility */
-    border-radius: 10px; /* Slightly more rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    font-size: 1.2rem; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
-    z-index: 1000; /* Ensure it stays on top of other elements */
+    z-index: 1000; 
 }
 
 .donate-button:hover {
     background-color: #1d6fa5;
-    transform: scale(1.1); /* Slightly enlarge on hover */
+    transform: scale(1.1); 
 }
 
-/* alerts  */
 
-/* Main Content Alignment */
 .center-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px; /* Adjust margin to bring content higher */
+    margin-top: 50px; 
     text-align: center;
 }
 
 .center-content h1 {
-    font-size: 1.7rem; /* Adjust font size */
-    margin-bottom: 20px; /* Add space below the header */
+    font-size: 1.7rem; 
+    margin-bottom: 20px; 
 }
 
-/* User Box Styling */
+
 .user-box {
-    border: 2px solid #3498db; /* Add a border around the user box */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Inner spacing */
-    width: 400px; /* Set a fixed width */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
-    background-color: #f9f9f9; /* Light background */
-    margin-top: 20px; /* Adjust spacing from the header */
+    border: 2px solid #3498db; 
+    border-radius: 10px; 
+    padding: 20px; 
+    width: 400px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    background-color: #f9f9f9; 
+    margin-top: 20px; 
 }
 
-/* Form Elements */
 .user-box form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between form elements */
+    gap: 15px; 
 }
 
 .user-box input, .user-box button {
@@ -190,7 +178,6 @@ body {
     border-radius: 5px;
 }
 
-/* Button Styling */
 .user-box button {
     background-color: #3498db;
     color: white;
@@ -203,15 +190,13 @@ body {
     background-color: #1d6fa5;
 }
 
-/* Video Container */
 .video-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     overflow: hidden;
 }
 
-/* Background Video */
 #background-video {
     position: absolute;
     top: 50%;
@@ -221,11 +206,11 @@ body {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -1; /* Send the video to the background */
+    z-index: -1; 
     opacity: 0.85;
 }
 
-/* Overlay Content */
+
 .overlay-content {
     position: absolute;
     top: 50%;
@@ -235,7 +220,7 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.5); 
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -250,7 +235,7 @@ body {
     line-height: 1.6;
 }
 
-/* Disable scrolling */
+
 body {
     overflow: hidden;
 }
