@@ -61,14 +61,6 @@ We welcome contributions from the community to improve WildCan. To get started:
 
 ---
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
-
-## Acknowledgements
-- The nwHacks team for organizing the hackathon.
-- Mentors and peers for their guidance and support.
 
 
 
