@@ -1,53 +1,110 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
-    <style>
-        #map {
-            height: 500px;
-        }
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Active Wildfires in BC</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="icon" href="assets/fire.png" type="image/png">
+   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+   <style>
+       #map {
+           height: 600px;
+           margin-top: 20px;
+           border-radius: 10px;
+           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+       }
+       h1 {
+           text-align: center;
+           color: #2c3e50;
+       }
+   </style>
 </head>
 <body>
-    <div class="tabs">
-        <a href="index.html" class="tab active">Home</a>
-        <a href="about.html" class="tab">About Us</a>
-        <a href="donate.html" class="tab">Donate</a>
-    </div>
-
-    <div class="content">
-        <h1>Welcome to British Columbia</h1>
-        <div id="map"></div>
-    </div>
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoicnNhbmdleSIsImEiOiJjbTYybnd1Z2IxMjR3MmxvdThzMHRxejBjIn0.FHJ1aQP5xd0N0t5rg9F8oQ';
-
-        const map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-127.6476, 53.7267],
-            zoom: 6
-        });
-
-        map.addControl(new mapboxgl.NavigationControl());
+   <nav class="navbar">
+       <div class="navbar-container">
+           <a href="index.html" class="navbar-logo">WildCan</a>
+           <ul class="navbar-menu">
+               <li class="navbar-item"><a href="index.html" class="navbar-link active">Home</a></li>
+               <li class="navbar-item"><a href="about.html" class="navbar-link">About Us</a></li>
+               <li class="navbar-item"><a href="donation.html" class="navbar-link">Donate</a></li>
+           </ul>
+       </div>
+   </nav>
 
 
-        const coordinate = [];
+   <div class="content">
+       <h1>Active Wildfires in British Columbia</h1>
+       <div id="map"></div>
+   </div>
 
-        new mapboxgl.Marker()
-            coordinates.forEach(coord => {
-            new mapboxgl.Marker()
-             .setLngLat(coord)
-            .addTo(map);
-        });
-    </script>
 
-    <script src="scripts.js" defer></script>
+   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+   <script>
+       // Mapbox access token
+mapboxgl.accessToken = 'pk.eyJ1IjoicnNhbmdleSIsImEiOiJjbTYybnd1Z2IxMjR3MmxvdThzMHRxejBjIn0.FHJ1aQP5xd0N0t5rg9F8oQ';
+
+
+// Initialize the map
+const map = new mapboxgl.Map({
+   container: 'map',
+   style: 'mapbox://styles/mapbox/streets-v11',
+   center: [-127.6476, 53.7267], // Center on British Columbia
+   zoom: 4.1
+});
+
+
+// Add navigation controls
+map.addControl(new mapboxgl.NavigationControl());
+
+
+// Fetch wildfire data from Flask API
+async function fetchFireData() {
+   try {
+       console.log('Fetching wildfire data from API...');
+      
+       // Fetch data from the Flask API
+       const response = await fetch('http://127.0.0.1:5000/api/fires');
+       const coordinates = await response.json(); // Parse JSON response
+      
+       console.log('Data fetched from API:', coordinates); // Debug log to see the raw response
+
+
+       // Validate the data format
+       if (!Array.isArray(coordinates) || !coordinates.every(coord => Array.isArray(coord) && coord.length === 2)) {
+           console.error('Invalid data format received from API. Expected [[longitude, latitude], ...]');
+           return;
+       }
+
+
+       console.log('Valid wildfire coordinates:', coordinates);
+
+
+       // Loop through coordinates and add markers
+       coordinates.forEach(([longitude, latitude]) => {
+           console.log(`Adding marker at Longitude: ${longitude}, Latitude: ${latitude}`);
+
+
+           // Add a marker for each coordinate
+           new mapboxgl.Marker({ color: 'red' })
+               .setLngLat([longitude, latitude])
+               .addTo(map);
+       });
+   } catch (error) {
+       console.error('Error fetching wildfire data:', error); // Log errors if fetch fails
+   }
+}
+
+
+// Load the wildfire data once the map has fully loaded
+map.on('load', fetchFireData);
+
+
+   </script>
+  
 </body>
 </html>
+
+
