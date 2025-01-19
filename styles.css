@@ -186,3 +186,234 @@ button:hover, a:hover {
 .transaction-summary h2 {
     color: #ff4500;
 }
+
+/*about file*/
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.donate-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #e04964;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+
+  .donate-button:hover {
+    background-color: #218838;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+  }
+.text-overlay {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(135, 135, 135, 0); 
+    padding: 20px;
+    border-radius: 8px;
+    text-shadow:
+ 0px -1px 3px #fff, 
+ 0px -2px 6px rgb(228, 228, 39), 
+ 0px -6px 12px rgb(219, 140, 21), 
+ 0px -10px 20px rgb(227, 22, 22); 
+}
+
+
+@keyframes flicker {
+    0%, 
+    100% { 
+        text-shadow: 
+            0 -1px 3px #da6464, 
+            0 -2px 6px rgb(180, 118, 70), 
+            0 -6px 12px rgb(70, 70, 70),
+            0 -10px 20px rgb(241, 38, 38);
+    }
+
+    50% { 
+        text-shadow: 
+            0 -2px 6px #fff, 
+            0 -4px 12px rgb(255, 172, 28), 
+            0 -8px 16px rgb(198, 136, 44), 
+            0 -12px 24px #C33; 
+  }
+}
+
+  .text-overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    animation: flicker 5s infinite;
+    }
+
+
+  .text-overlay h1 {
+
+    margin-bottom: 10px;
+  }
+
+  .text-overlay p {
+    font-size: 1.2rem;
+  }
+
+  /* General body styling */
+  .custom-body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Main container styling */
+form {
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+}
+
+/* Heading styling */
+h1 {
+    font-size: 1.8rem;
+    color: #111827;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Label styling */
+label {
+    display: block;
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Input fields styling */
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="tel"]:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
+}
+
+/* Button styling */
+button, input[type="submit"] {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #10b981;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+button:hover {
+    background-color: #059669;
+}
+
+/* Output message styling */
+#output {
+    font-size: 1rem;
+    color: #374151;
+    margin-top: 15px;
+}
+
+/* Spacing and alignment */
+form > br {
+    display: none;
+}
