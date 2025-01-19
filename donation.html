@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -35,7 +36,10 @@
             <input type="number" id="amount" name="amount" placeholder="Enter amount" required min="1">
 
             <button type="button" id="donateButton"> Location</button>
+            <pre id = "result"></pre>
+           
         </form>
+        <script src = "location.js"></script>
 
         <!-- Transaction Summary -->
         <div id="transactionSummary" class="transaction-summary" style="display: none;">
